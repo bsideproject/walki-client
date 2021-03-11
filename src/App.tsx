@@ -6,15 +6,15 @@ import { ApolloProvider, useReactiveVar } from '@apollo/client';
 
 import { client, isLoggedInVar } from './common/apollo';
 
-import LoginScreen from './screens/auth/login';
-import HomeScreen from './screens/main/home';
+import { AuthStack } from './navigators/auth-stack';
+import { MainStack } from './navigators/main-stack';
 
 const App = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        {isLoggedIn ? <HomeScreen /> : <LoginScreen />}
+        {isLoggedIn ? <MainStack /> : <AuthStack />}
       </NavigationContainer>
     </ApolloProvider>
   );
