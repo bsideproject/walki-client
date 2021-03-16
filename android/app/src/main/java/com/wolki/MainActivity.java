@@ -1,4 +1,4 @@
-package com.wolki;
+package com.walki;
 
 import com.facebook.react.ReactActivity;
 
