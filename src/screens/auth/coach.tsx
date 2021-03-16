@@ -1,5 +1,5 @@
 import React from 'react';
-import CoachContainer from '../../containers/auth/coach';
+import CoachContainer from '../../containers/auth/Coach';
 
 const CoachScreen = () => {
   return <CoachContainer />;

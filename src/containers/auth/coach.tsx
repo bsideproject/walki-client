@@ -1,19 +1,38 @@
 import React, { useCallback, useState } from 'react';
-import styled from '@emotion/native';
+import { Dimensions, StyleProp, ViewStyle } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { Dimensions } from 'react-native';
+
+import styled from '@emotion/native';
+
+import { Button } from '../../components/Button';
+import { SafeLayout } from '../../layouts/SafeLayout';
+import { Header } from '../../components/Header';
 
 const { width: screenWidth } = Dimensions.get('window');
 
+const COACH_DATA = [
+  require('../../assets/images/card_01.png'),
+  require('../../assets/images/card_02.png'),
+];
+
 const CoachContainer = () => {
-  const [activeSlide, setactiveSlide] = useState(0);
+  const [selectedCoachIndex, setSelectedCoachIndex] = useState(0);
 
   const _renderItem = useCallback(({ item }: { item: number }) => {
     return <Iamge source={item} />;
   }, []);
 
+  const slideStyle: StyleProp<ViewStyle> = {
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const onPressSelect = useCallback(() => {
+    console.log(selectedCoachIndex);
+  }, [selectedCoachIndex]);
+
   return (
-    <SafeContaienr>
+    <SafeLayout>
       <Container>
         <Header>
           <BackButton>&larr;</BackButton>
@@ -23,45 +42,28 @@ const CoachContainer = () => {
           <Subtitle>코치를 선택해야 서비스를 이용할 수 있어요!</Subtitle>
         </Content>
         <Carousel
-          data={[
-            require('../../assets/images/card_01.png'),
-            require('../../assets/images/card_02.png'),
-          ]}
+          data={COACH_DATA}
           renderItem={_renderItem}
           sliderWidth={screenWidth - 32}
           itemWidth={264 + 12}
-          onSnapToItem={(index) => setactiveSlide(index)}
-          slideStyle={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+          onSnapToItem={(index) => setSelectedCoachIndex(index)}
+          slideStyle={slideStyle}
         />
         <Pagination
           dotsLength={2}
-          activeDotIndex={activeSlide}
+          activeDotIndex={selectedCoachIndex}
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
         />
-        <ButtonContainer>
-          <ButtonText>선택하기</ButtonText>
-        </ButtonContainer>
+        <SelectButton>
+          <Button text="선택하기" onPress={onPressSelect} />
+        </SelectButton>
       </Container>
-    </SafeContaienr>
+    </SafeLayout>
   );
 };
 
 export default CoachContainer;
-
-const SafeContaienr = styled.SafeAreaView`
-  flex: 1;
-  background-color: white;
-`;
-
-const Header = styled.View`
-  width: 100%;
-  height: 60px;
-  justify-content: center;
-`;
 
 const BackButton = styled.Text`
   font-size: 24px;
@@ -94,19 +96,6 @@ const Subtitle = styled.Text``;
 
 const Iamge = styled.Image``;
 
-const ButtonContainer = styled.TouchableOpacity`
-  width: 100%;
-  height: 54px;
-  justify-content: center;
-  align-items: center;
-  background-color: #333333;
-  border-radius: 8px;
-
+const SelectButton = styled.View`
   margin-bottom: 24px;
-`;
-
-const ButtonText = styled.Text`
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
 `;
