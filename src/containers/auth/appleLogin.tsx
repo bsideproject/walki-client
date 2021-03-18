@@ -80,7 +80,7 @@ async function onAppleButtonPress(updateCredentialStateForUser: any) {
   }
 }
 
-const LoginContainer = () => {
+const AppleLoginContainer = () => {
   const [credentialStateForUser, updateCredentialStateForUser] = useState<any>(
     -1,
   );
@@ -112,10 +112,7 @@ const LoginContainer = () => {
   }
 
   return (
-    <View style={[styles.container, styles.horizontal]}>
-      <Text style={styles.header}>Credential State</Text>
-      <Text>{credentialStateForUser}</Text>
-
+    <>
       <AppleButton
         style={styles.appleButton}
         cornerRadius={5}
@@ -130,19 +127,13 @@ const LoginContainer = () => {
         buttonType={AppleButton.Type.SIGN_IN}
         onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
-    </View>
+      <Text style={styles.header}>Credential State</Text>
+      <Text>{credentialStateForUser}</Text>
+    </>
   );
 };
 
-export default LoginContainer;
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Button = styled.TouchableOpacity``;
+export default AppleLoginContainer;
 
 const styles = StyleSheet.create({
   appleButton: {
