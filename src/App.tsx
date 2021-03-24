@@ -6,8 +6,8 @@ import { ApolloProvider, useReactiveVar } from '@apollo/client';
 
 import { client, isLoggedInVar } from './common/apollo';
 
-import { AuthStack } from './navigators/auth-stack';
-import { MainStack } from './navigators/main-stack';
+import { AuthStack } from './navigators/AuthStack';
+import { MainStack } from './navigators/MainStack';
 
 const App = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
