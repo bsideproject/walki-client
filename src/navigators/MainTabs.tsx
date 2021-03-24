@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/main/home';
-import ReportScreen from '../screens/main/report';
-import RankingScreen from '../screens/main/ranking';
+import HomeScreen from '../screens/main/Home';
+import ReportScreen from '../screens/main/Report';
+import RankingScreen from '../screens/main/Ranking';
 
 const MainTab = createBottomTabNavigator();
 
