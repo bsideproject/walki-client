@@ -3,6 +3,8 @@ import { Dimensions, StyleProp, ViewStyle } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import styled from '@emotion/native';
+// @ts-ignore
+import ChevronLeft from '../../assets/icons/chevron/left.svg';
 
 import { Button } from '../../components/Button';
 import { SafeLayout } from '../../layouts/SafeLayout';
@@ -35,7 +37,9 @@ const CoachContainer = () => {
     <SafeLayout>
       <Container>
         <Header>
-          <BackButton>&larr;</BackButton>
+          <BackButton>
+            <ChevronLeft width={24} height={24} />
+          </BackButton>
         </Header>
         <Content>
           <Title>나의 걷기를 도와줄 코치를 선택해주세요!</Title>
@@ -65,13 +69,11 @@ const CoachContainer = () => {
 
 export default CoachContainer;
 
-const BackButton = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
+const BackButton = styled.TouchableOpacity`
   width: 48px;
   height: 48px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Container = styled.View`
