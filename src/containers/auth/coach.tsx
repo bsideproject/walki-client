@@ -56,7 +56,7 @@ const CoachContainer = () => {
           inactiveDotScale={0.6}
         />
         <SelectButton>
-          <Button text="선택하기" onPress={onPressSelect} />
+          <Button text="선택하기" onPress={onPressSelect} type="Secondary" />
         </SelectButton>
       </Container>
     </SafeLayout>
@@ -77,7 +77,7 @@ const BackButton = styled.Text`
 const Container = styled.View`
   flex: 1;
   padding: 0px 16px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white};
 `;
 
 const Content = styled.View`
