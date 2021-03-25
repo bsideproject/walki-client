@@ -3,7 +3,6 @@ import { Dimensions, StyleProp, ViewStyle } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import styled from '@emotion/native';
-// @ts-ignore
 import ChevronLeft from '../../assets/icons/chevron/left.svg';
 
 import { Button } from '../../components/Button';
