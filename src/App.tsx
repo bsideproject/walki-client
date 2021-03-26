@@ -8,15 +8,19 @@ import { client, isLoggedInVar } from './common/apollo';
 
 import { AuthStack } from './navigators/AuthStack';
 import { MainStack } from './navigators/MainStack';
+import { Theme, ThemeProvider } from '@emotion/react';
+import { theme } from './styles/theme';
 
 const App = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
-    <ApolloProvider client={client}>
-      <NavigationContainer>
-        {isLoggedIn ? <MainStack /> : <AuthStack />}
-      </NavigationContainer>
-    </ApolloProvider>
+    <ThemeProvider theme={theme.toki as Theme}>
+      <ApolloProvider client={client}>
+        <NavigationContainer>
+          {isLoggedIn ? <MainStack /> : <AuthStack />}
+        </NavigationContainer>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 };
 
