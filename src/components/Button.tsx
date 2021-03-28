@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/native';
 
-export type ButtonType = 'Primary' | 'Secondary';
+export type ButtonType = 'primary' | 'secondary';
 
 interface IProps {
   text: string;
@@ -34,10 +34,10 @@ const Container = styled.TouchableOpacity<{ type: ButtonType }>`
   align-items: center;
   background-color: ${({ type, theme, disabled }) =>
     disabled
-      ? type === 'Primary'
+      ? type === 'primary'
         ? `${theme.color.main}30`
         : `${theme.color.gray1}30`
-      : type === 'Primary'
+      : type === 'primary'
       ? theme.color.main
       : theme.color.gray1};
   border-radius: 8px;

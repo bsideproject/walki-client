@@ -7,5 +7,5 @@ export const SafeLayout: React.FC = ({ children }) => {
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: white;
+  background-color: #f3f3f3;
 `;
