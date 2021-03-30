@@ -59,7 +59,7 @@ const CoachContainer = () => {
           inactiveDotScale={0.6}
         />
         <SelectButton>
-          <Button text="선택하기" onPress={onPressSelect} type="Secondary" />
+          <Button text="선택하기" onPress={onPressSelect} type="secondary" />
         </SelectButton>
       </Container>
     </SafeLayout>

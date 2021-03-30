@@ -1,25 +1,48 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { isLoggedInVar } from '../../common/apollo';
+import { SafeLayout } from '../../layouts/SafeLayout';
+import { Header } from '../../components/Home/Header';
+import { Info } from '../../components/Home/Info';
+import { CircularProgress } from '../../components/Home/CircularProgress';
+import { Button } from '../../components/Button';
 
 const HomeContainer = () => {
   return (
-    <Container>
-      <Button onPress={() => isLoggedInVar(false)}>
-        <Text>Logout</Text>
-      </Button>
-    </Container>
+    <SafeLayout>
+      <Header />
+      <Body>
+        <Info />
+        <CircularProgress />
+        <TextContainer>
+          <Text>조금만 더 힘내시면 목표에 도달할 수 있어요!</Text>
+        </TextContainer>
+        <ButtonContainer>
+          <Button text="오늘은 그만할래요" type="secondary" />
+        </ButtonContainer>
+      </Body>
+    </SafeLayout>
   );
 };
 
 export default HomeContainer;
 
-const Container = styled.View`
+const Body = styled.View`
   flex: 1;
-  justify-content: center;
-  align-items: center;
+  padding: 0px 16px;
 `;
 
-const Text = styled.Text``;
+const TextContainer = styled.View`
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+`;
 
-const Button = styled.TouchableOpacity``;
+const Text = styled.Text`
+  font-size: 16px;
+
+  color: ${(props) => props.theme.color.gray2};
+`;
+
+const ButtonContainer = styled.View`
+  padding: 0px 36px;
+`;
