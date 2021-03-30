@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { isLoggedInVar } from '../../common/apollo';
+import { SafeLayout } from '../../layouts/SafeLayout';
+import { Header } from '../../components/Report/Header';
+import { Graph } from '../../components/Report/Graph';
+import { ReportList } from '../../components/Report/ReportList';
 
 const ReportContainer = () => {
   return (
-    <Container>
-      <Button onPress={() => isLoggedInVar(false)}>
-        <Text>Logout</Text>
-      </Button>
-    </Container>
+    <SafeLayout>
+      <Container>
+        <Header />
+        <Graph />
+        <ReportList />
+      </Container>
+    </SafeLayout>
   );
 };
 
@@ -16,10 +21,4 @@ export default ReportContainer;
 
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
-  align-items: center;
 `;
-
-const Text = styled.Text``;
-
-const Button = styled.TouchableOpacity``;

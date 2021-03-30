@@ -42,6 +42,10 @@ const toki = {
       main: '#f2aacb',
       sub: '#ffcfe5',
     },
+    chart: {
+      main: '#51b5ff',
+      sub: '#8ec9f5',
+    },
     ...grayScale,
   },
 };
@@ -53,6 +57,10 @@ const booki = {
     character: {
       main: '#b1d66e',
       sub: '#d9edb4',
+    },
+    chart: {
+      main: '#51b5ff',
+      sub: '#8ec9f5',
     },
     ...grayScale,
   },
