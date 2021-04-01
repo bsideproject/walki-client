@@ -36,8 +36,8 @@ const Container = styled.TouchableOpacity<{ type: ButtonType }>`
   background-color: ${({ type, theme, disabled }) =>
     disabled
       ? type === 'primary'
-        ? `${theme.color.main}${disabled && 30}`
-        : `${theme.color.gray1}${disabled && 30}`
+        ? `${theme.color.main}30`
+        : `${theme.color.gray1}30`
       : type === 'primary'
       ? theme.color.main
       : theme.color.gray1};
