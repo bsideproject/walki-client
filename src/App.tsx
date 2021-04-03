@@ -17,7 +17,8 @@ const App = () => {
     <ThemeProvider theme={theme.toki as Theme}>
       <ApolloProvider client={client}>
         <NavigationContainer>
-          {isLoggedIn || true ? <MainStack /> : <AuthStack />}
+          <AuthStack />
+          {/* {isLoggedIn || true ? <MainStack /> : <AuthStack />} */}
         </NavigationContainer>
       </ApolloProvider>
     </ThemeProvider>
