@@ -1,10 +1,7 @@
 import React, { useCallback, useState, useRef } from 'react';
 import {
   Dimensions,
-  StyleSheet,
-  View,
   Image,
-  Alert,
   TouchableOpacity,
   Text,
   TouchableWithoutFeedbackProps,
@@ -122,13 +119,16 @@ const GuideContainer = () => {
       <BottomContainer>
         {selectedCoachIndex < 2 ? (
           <TextButtonWrapper>
-            <TextButton
-              onPress={() => {
-                if (carouselRef.current) carouselRef.current.snapToItem(2);
-                setSelectedCoachIndex(2);
-              }}>
-              건너뛰기
-            </TextButton>
+            {selectedCoachIndex < 1 && (
+              <TextButton
+                onPress={() => {
+                  if (carouselRef.current) carouselRef.current.snapToItem(2);
+                  setSelectedCoachIndex(2);
+                }}>
+                건너뛰기
+              </TextButton>
+            )}
+            <TextButton />
             <TextButton
               onPress={() => {
                 if (carouselRef.current)

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { isLoggedInVar } from '../../common/apollo';
+import AppleLogo from '../../assets/icons/logo/apple.svg';
+import KakaoLogo from '../../assets/icons/logo/kakao.svg';
 import {
   Alert,
-  Image,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedbackProps,
@@ -66,22 +66,12 @@ const LoginButton: React.FC<ILoginButtonProps> = ({ type, onPress }) => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        // justifyContent: 'space-between',
-        // display: 'inline',
       }}>
-      <Image
-        source={
-          type === 'apple'
-            ? require(`../../assets/icons/button/logo_apple.png`)
-            : require(`../../assets/icons/button/logo_kakao.png`)
-        }
-        style={{
-          width: 24,
-          height: 24,
-          marginRight: 4,
-          resizeMode: 'contain',
-        }}
-      />
+      {type === 'apple' ? (
+        <AppleLogo width={24} height={24} />
+      ) : (
+        <KakaoLogo width={24} height={24} />
+      )}
       <Text
         numberOfLines={1}
         adjustsFontSizeToFit
@@ -90,6 +80,7 @@ const LoginButton: React.FC<ILoginButtonProps> = ({ type, onPress }) => {
           fontWeight: '600',
           fontSize: 16,
           letterSpacing: -0.6,
+          marginLeft: 6,
         }}>
         {type === 'apple' ? '애플' : '카카오'}로 시작하기
       </Text>
