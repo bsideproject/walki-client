@@ -43,7 +43,11 @@ interface IGuideContainerProps {
   currIndex: number;
   setCurrIndex: (idx: number) => void;
 }
-
+/**
+ * 온보딩 스와이프 화면
+ * @param currIndex
+ * @param setCurrIndex
+ */
 const GuideContainer = ({ currIndex, setCurrIndex }: IGuideContainerProps) => {
   const carouselRef = useRef<Carousel<IGuideData>>(null);
 
@@ -100,9 +104,6 @@ const GuideContainer = ({ currIndex, setCurrIndex }: IGuideContainerProps) => {
           inactiveDotColor={'#E0E0E0'}
           inactiveDotScale={1}
           activeDotIndex={currIndex}
-          containerStyle={{
-            marginTop: 80,
-          }}
         />
 
         <Carousel

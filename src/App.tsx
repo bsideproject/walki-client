@@ -1,13 +1,10 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
+import { MainTabNavi } from './navigators/MainTabNavi';
+import { AuthStackNavi } from './navigators/AuthStackNavi';
 import { ApolloProvider, useReactiveVar } from '@apollo/client';
-
 import { client, isLoggedInVar } from './common/apollo';
-
-import { AuthStack } from './navigators/AuthStack';
-import { MainStack } from './navigators/MainStack';
 import { Theme, ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
 
@@ -17,8 +14,7 @@ const App = () => {
     <ThemeProvider theme={theme.toki as Theme}>
       <ApolloProvider client={client}>
         <NavigationContainer>
-          <AuthStack />
-          {/* {isLoggedIn || true ? <MainStack /> : <AuthStack />} */}
+          {isLoggedIn ? <MainTabNavi /> : <AuthStackNavi />}
         </NavigationContainer>
       </ApolloProvider>
     </ThemeProvider>
