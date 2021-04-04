@@ -1,9 +1,10 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Dimensions, Image, Text } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styled from '@emotion/native';
-import LoginContainer from './Login';
 import TextButton from '../../components/TextButton';
+
+const { width: screenWidth, height: screenHight } = Dimensions.get('window');
 
 interface IGuideData {
   title: string;
@@ -11,8 +12,6 @@ interface IGuideData {
   source: any;
   style: any;
 }
-
-const { width: screenWidth, height: screenHight } = Dimensions.get('window');
 
 const GUIDE_DATA: IGuideData[] = [
   {
@@ -40,8 +39,12 @@ const GUIDE_DATA: IGuideData[] = [
   },
 ];
 
-const GuideContainer = () => {
-  const [selectedCoachIndex, setSelectedCoachIndex] = useState(0);
+interface IGuideContainerProps {
+  currIndex: number;
+  setCurrIndex: (idx: number) => void;
+}
+
+const GuideContainer = ({ currIndex, setCurrIndex }: IGuideContainerProps) => {
   const carouselRef = useRef<Carousel<IGuideData>>(null);
 
   const _renderItem = useCallback(
@@ -89,36 +92,37 @@ const GuideContainer = () => {
   );
 
   return (
-    <Container>
-      <Pagination
-        dotsLength={3}
-        dotColor={'#F22764'}
-        inactiveDotColor={'#E0E0E0'}
-        inactiveDotScale={1}
-        activeDotIndex={selectedCoachIndex}
-        containerStyle={{
-          marginTop: 80,
-        }}
-      />
+    <>
+      <Container>
+        <Pagination
+          dotsLength={3}
+          dotColor={'#F22764'}
+          inactiveDotColor={'#E0E0E0'}
+          inactiveDotScale={1}
+          activeDotIndex={currIndex}
+          containerStyle={{
+            marginTop: 80,
+          }}
+        />
 
-      <Carousel
-        ref={carouselRef}
-        data={GUIDE_DATA}
-        renderItem={_renderItem}
-        sliderWidth={screenWidth}
-        sliderHeight={screenHight}
-        itemWidth={screenWidth}
-        onSnapToItem={(index) => setSelectedCoachIndex(index)}
-      />
-
+        <Carousel
+          ref={carouselRef}
+          data={GUIDE_DATA}
+          renderItem={_renderItem}
+          sliderWidth={screenWidth}
+          sliderHeight={screenHight}
+          itemWidth={screenWidth}
+          onSnapToItem={(index) => setCurrIndex(index)}
+        />
+      </Container>
       <BottomContainer>
-        {selectedCoachIndex < 2 ? (
+        {currIndex < 2 && (
           <TextButtonWrapper>
-            {selectedCoachIndex < 1 && (
+            {currIndex < 1 && (
               <TextButton
                 onPress={() => {
                   if (carouselRef.current) carouselRef.current.snapToItem(2);
-                  setSelectedCoachIndex(2);
+                  setCurrIndex(2);
                 }}>
                 건너뛰기
               </TextButton>
@@ -127,17 +131,15 @@ const GuideContainer = () => {
             <TextButton
               onPress={() => {
                 if (carouselRef.current)
-                  carouselRef.current.snapToItem(selectedCoachIndex + 1);
-                setSelectedCoachIndex(selectedCoachIndex + 1);
+                  carouselRef.current.snapToItem(currIndex + 1);
+                setCurrIndex(currIndex + 1);
               }}>
               다음
             </TextButton>
           </TextButtonWrapper>
-        ) : (
-          <LoginContainer />
         )}
       </BottomContainer>
-    </Container>
+    </>
   );
 };
 

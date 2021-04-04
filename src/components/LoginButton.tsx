@@ -4,8 +4,8 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedbackProps,
 } from 'react-native';
-import AppleLogo from '../../assets/icons/logo/apple.svg';
-import KakaoLogo from '../../assets/icons/logo/kakao.svg';
+import AppleLogo from '../assets/icons/logo/apple.svg';
+import KakaoLogo from '../assets/icons/logo/kakao.svg';
 
 interface ILoginButtonProps extends TouchableWithoutFeedbackProps {
   type: 'apple' | 'kakao';
