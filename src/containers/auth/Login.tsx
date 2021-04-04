@@ -5,6 +5,7 @@ import LoginButton from '../../components/LoginButton';
 import TextLink from '../../components/TextLink';
 import { INaviProps } from '../../navigators/AuthStackNavi';
 import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
+import { appleAuth } from '@invertase/react-native-apple-authentication';
 /**
  * 로그인 버튼
  * @param currIndex
@@ -17,17 +18,32 @@ const LoginContainer = ({ goNext }: INaviProps) => {
     if (typeof goNext === 'function' && token) goNext();
   }, []);
 
+  const onAppleButtonPress = useCallback(async () => {
+    // Start the sign-in request
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+    // Ensure Apple returned a user identityToken
+    if (!appleAuthRequestResponse.identityToken) {
+      throw 'Apple Sign-In failed - no identify token returned';
+    }
+    // Create a Firebase credential from the response
+    const { identityToken, nonce } = appleAuthRequestResponse;
+    console.log('identityToken: ', identityToken);
+    console.log('nonce: ', nonce);
+    // const appleCredential = auth.AppleAuthProvider.credential(
+    //   identityToken,
+    //   nonce,
+    // );
+    // return auth().signInWithCredential(appleCredential);
+  }, []);
+
   return (
     <BottomContainer>
       <LoginButtonWrapper>
         <LoginButton type="kakao" onPress={onPressKakaoLogin} />
-        <LoginButton
-          type="apple"
-          onPress={() => {
-            Alert.alert('애플로 시작하기');
-            if (typeof goNext === 'function') goNext();
-          }}
-        />
+        <LoginButton type="apple" onPress={onAppleButtonPress} />
 
         <Text
           numberOfLines={2}
