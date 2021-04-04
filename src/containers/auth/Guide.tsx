@@ -1,14 +1,9 @@
 import React, { useCallback, useState, useRef } from 'react';
-import {
-  Dimensions,
-  Image,
-  TouchableOpacity,
-  Text,
-  TouchableWithoutFeedbackProps,
-} from 'react-native';
+import { Dimensions, Image, Text } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styled from '@emotion/native';
 import LoginContainer from './Login';
+import TextButton from '../../components/TextButton';
 
 interface IGuideData {
   title: string;
@@ -163,19 +158,3 @@ const TextButtonWrapper = styled.View`
   justify-content: space-between;
   padding: 70px 20px;
 `;
-
-const TextButton: React.FC<TouchableWithoutFeedbackProps> = ({
-  onPress,
-  children,
-}) => {
-  return (
-    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
-      <Text
-        numberOfLines={1}
-        adjustsFontSizeToFit
-        style={{ color: '#333333', fontSize: 14 }}>
-        {children}
-      </Text>
-    </TouchableOpacity>
-  );
-};
