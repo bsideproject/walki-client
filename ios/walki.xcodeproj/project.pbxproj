@@ -20,6 +20,7 @@
 		7A53D4AFC513E91B73B44F0B /* libPods-walki-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00FB8A8E4EF63DC04D500F /* libPods-walki-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D62870238B79A60B0D68549D /* libPods-walki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6072A951338CB9270F21A12 /* libPods-walki.a */; };
+		F6B3278B2619CBD600D7B78F /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3278A2619CBD600D7B78F /* SwiftBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		D972F23C137D79441E31AD6E /* Pods-walki-walkiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walki-walkiTests.debug.xcconfig"; path = "Target Support Files/Pods-walki-walkiTests/Pods-walki-walkiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F6B327892619CBD500D7B78F /* walki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "walki-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6B3278A2619CBD600D7B78F /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F6B3278A2619CBD600D7B78F /* SwiftBridge.swift */,
+				F6B327892619CBD500D7B78F /* walki-Bridging-Header.h */,
 			);
 			name = walki;
 			sourceTree = "<group>";
@@ -194,7 +199,6 @@
 				04561142A6DE790C85AA680F /* Pods-walki-tvOSTests.debug.xcconfig */,
 				3A595A7F84654DDE926518B6 /* Pods-walki-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -294,7 +298,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -570,6 +574,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F6B3278B2619CBD600D7B78F /* SwiftBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D972F23C137D79441E31AD6E /* Pods-walki-walkiTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -633,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51E93CA045DFFF588F3F7731 /* Pods-walki-walkiTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = walkiTests/Info.plist;
@@ -666,6 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = walki;
+				SWIFT_OBJC_BRIDGING_HEADER = "walki-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -688,6 +696,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = walki;
+				SWIFT_OBJC_BRIDGING_HEADER = "walki-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
