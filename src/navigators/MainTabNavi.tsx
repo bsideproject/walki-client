@@ -6,7 +6,7 @@ import RankingScreen from '../screens/main/Ranking';
 
 const MainTab = createBottomTabNavigator();
 
-export const MainTabs = () => {
+export const MainTabNavi = () => {
   return (
     <MainTab.Navigator
       tabBarOptions={{
