@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '@emotion/native';
 import { Alert, Text } from 'react-native';
 import LoginButton from '../../components/LoginButton';
 import TextLink from '../../components/TextLink';
+import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 
 const LoginContainer = () => {
+  const onPressKakaoLogin = useCallback(async () => {
+    const token: KakaoOAuthToken = await login();
+    console.log(token);
+  }, []);
+
   return (
     <BottomContainer>
       <LoginButtonWrapper>
-        <LoginButton
-          type="kakao"
-          onPress={() => Alert.alert('카카오로 시작하기')}
-        />
+        <LoginButton type="kakao" onPress={onPressKakaoLogin} />
         <LoginButton
           type="apple"
           onPress={() => Alert.alert('애플로 시작하기')}
