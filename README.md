@@ -1,0 +1,15 @@
+# Walki Client
+
+1. 카카오 로그인
+
+```
+kakaokompassauth://authorize?redirect_uri=kakao9ed125321a882ab21f4f1c408223af27://oauth&params=%7B%22code_challenge_method%22:%22S256%22,%22code_challenge%22:%22BGd2T_qpu6CPvcFBIZ0qRXBvacxQP1_4NB1hPAzTEQ8%22%7D&client_id=9ed125321a882ab21f4f1c408223af27&headers=%7B%22KA%22:%22sdk%5C/2.4.1%20sdk_type%5C/swift%20os%5C/ios-14.4.2%20lang%5C/ko-KR%20res%5C/375x667%20device%5C/iPhone%20origin%5C/com.palmtree.walki%20app_ver%5C/1.0%22%7D&response_type=code
+```
+
+2. 애플 로그인
+
+```
+'identityToken: ', 'eyJraWQiOiJZdXlYb1kiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiYXVkIjoiY29tLnBhbG10cmVlLndhbGtpIiwiZXhwIjoxNjE3NjMzNTQ3LCJpYXQiOjE2MTc1NDcxNDcsInN1YiI6IjAwMTAwOS5hNmEyMGJjZDNjZjI0MzM0OTY2ZGRhY2QwZTJhZTY0Zi4xMzQ5Iiwibm9uY2UiOiJiN2RjZTJjMzJmYWZlYjgzZTk1ZWNkMTc4ZTc5ZWY3MDkxYmMxMzRhZjljMzYzYzAzZmVlNGJkY2E3MmJkZmU4IiwiY19oYXNoIjoiSjQ3U1JXa1dJSjBUanh2Q3hNMFZ2ZyIsImVtYWlsIjoiY2hhank4MTVAbmF2ZXIuY29tIiwiZW1haWxfdmVyaWZpZWQiOiJ0cnVlIiwiYXV0aF90aW1lIjoxNjE3NTQ3MTQ3LCJub25jZV9zdXBwb3J0ZWQiOnRydWV9.Bc8HyWDpZMuYOm7EYWK7XvB39m_xDgJFq-I9j2dwnywrEMnw6GUd8PRO82ks7AY6Imaei4oq7ZteRnwszL2WHDTuRhBaTmgs24Aew3AS3xIKXM2y0LBZ2LQSeY_CnqE0xk2942XEXMV2UMZkGMS9a-aDsDgd8CnCoTvj2Ux2Cz7wS-cA7wxqRrXdAKI3gZ37KXenBgGukVQOoAFHW1ELipUQZRfIZ4rvZRF69xXtjtVW04hzLBqm0Q-xejLjhzaQi_UH6ejM9FXbhmfS8a9w-muh1KTwVv-ArO8Q0tmqiYoWxr8pacj2zatb9Nk3egcJQBs1LYbIih6tlbWRmSDSjQ'
+
+'nonce: ', 'V4TnmTRk_QDgcm..qPJBiQX8gLDdbTTv'
+```

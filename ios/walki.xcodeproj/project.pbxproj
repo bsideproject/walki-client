@@ -46,6 +46,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* walkiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = walkiTests.m; sourceTree = "<group>"; };
 		04561142A6DE790C85AA680F /* Pods-walki-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walki-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-walki-tvOSTests/Pods-walki-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0D51B44C261A0635006C7EA6 /* walkiDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = walkiDebug.entitlements; path = walki/walkiDebug.entitlements; sourceTree = "<group>"; };
 		0DBA22862619FFBD0027A6AC /* walkiRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = walkiRelease.entitlements; path = walki/walkiRelease.entitlements; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* walki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = walki/AppDelegate.h; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		13B07FAE1A68108700A75B9A /* walki */ = {
 			isa = PBXGroup;
 			children = (
+				0D51B44C261A0635006C7EA6 /* walkiDebug.entitlements */,
 				0DBA22862619FFBD0027A6AC /* walkiRelease.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -665,6 +667,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = walki/walkiDebug.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57UP74KQBX;
 				ENABLE_BITCODE = NO;

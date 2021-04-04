@@ -13,9 +13,10 @@ import { appleAuth } from '@invertase/react-native-apple-authentication';
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
   const onPressKakaoLogin = useCallback(async () => {
-    const token: KakaoOAuthToken = await login();
-    console.log(token);
-    if (typeof goNext === 'function' && token) goNext();
+    await login().then((token: KakaoOAuthToken) => {
+      console.log(1111111111111111, token);
+      if (typeof goNext === 'function' && token) goNext();
+    });
   }, []);
 
   const onAppleButtonPress = useCallback(async () => {
@@ -32,6 +33,7 @@ const LoginContainer = ({ goNext }: INaviProps) => {
     const { identityToken, nonce } = appleAuthRequestResponse;
     console.log('identityToken: ', identityToken);
     console.log('nonce: ', nonce);
+    if (typeof goNext === 'function' && identityToken) goNext();
     // const appleCredential = auth.AppleAuthProvider.credential(
     //   identityToken,
     //   nonce,
