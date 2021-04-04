@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '@emotion/native';
 import { Alert, Text } from 'react-native';
 import LoginButton from '../../components/LoginButton';
 import TextLink from '../../components/TextLink';
 import { INaviProps } from '../../navigators/AuthStackNavi';
+import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 /**
  * 로그인 버튼
  * @param currIndex
  * @param setCurrIndex
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
+  const onPressKakaoLogin = useCallback(async () => {
+    const token: KakaoOAuthToken = await login();
+    console.log(token);
+    if (typeof goNext === 'function' && token) goNext();
+  }, []);
+
   return (
     <BottomContainer>
       <LoginButtonWrapper>
-        <LoginButton
-          type="kakao"
-          onPress={() => {
-            Alert.alert('카카오로 시작하기');
-            if (typeof goNext === 'function') goNext();
-          }}
-        />
+        <LoginButton type="kakao" onPress={onPressKakaoLogin} />
         <LoginButton
           type="apple"
           onPress={() => {
