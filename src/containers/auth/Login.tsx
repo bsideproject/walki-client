@@ -6,6 +6,7 @@ import TextLink from '../../components/TextLink';
 import { INaviProps } from '../../navigators/AuthStackNavi';
 import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 import { appleAuth } from '@invertase/react-native-apple-authentication';
+
 /**
  * 로그인 버튼
  * @param currIndex
@@ -13,32 +14,35 @@ import { appleAuth } from '@invertase/react-native-apple-authentication';
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
   const onPressKakaoLogin = useCallback(async () => {
-    await login().then((token: KakaoOAuthToken) => {
-      console.log(1111111111111111, token);
-      if (typeof goNext === 'function' && token) goNext();
-    });
+    const token: KakaoOAuthToken = await login();
+    console.log(1111111, token);
+    if (typeof goNext === 'function' && token) goNext();
   }, []);
 
   const onAppleButtonPress = useCallback(async () => {
-    // Start the sign-in request
-    const appleAuthRequestResponse = await appleAuth.performRequest({
-      requestedOperation: appleAuth.Operation.LOGIN,
-      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
-    });
-    // Ensure Apple returned a user identityToken
-    if (!appleAuthRequestResponse.identityToken) {
-      throw 'Apple Sign-In failed - no identify token returned';
+    try {
+      // Start the sign-in request
+      const appleAuthRequestResponse = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+      });
+      // get current authentication state for user
+      const credentialState = await appleAuth.getCredentialStateForUser(
+        appleAuthRequestResponse.user,
+      );
+      // use credentialState response to ensure the user is authenticated
+      if (credentialState === appleAuth.State.AUTHORIZED) {
+        // user is authenticated
+        console.log(appleAuthRequestResponse);
+        if (typeof goNext === 'function') goNext();
+      }
+    } catch (error) {
+      if (error.code === appleAuth.Error.CANCELED) {
+        // login canceled
+      } else {
+        // login error
+      }
     }
-    // Create a Firebase credential from the response
-    const { identityToken, nonce } = appleAuthRequestResponse;
-    console.log('identityToken: ', identityToken);
-    console.log('nonce: ', nonce);
-    if (typeof goNext === 'function' && identityToken) goNext();
-    // const appleCredential = auth.AppleAuthProvider.credential(
-    //   identityToken,
-    //   nonce,
-    // );
-    // return auth().signInWithCredential(appleCredential);
   }, []);
 
   return (
