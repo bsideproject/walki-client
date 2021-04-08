@@ -4,7 +4,7 @@ import { Alert, Text } from 'react-native';
 import LoginButton from '../../components/LoginButton';
 import TextLink from '../../components/TextLink';
 import { INaviProps } from '../../navigators/AuthStackNavi';
-// import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
+import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 import { appleAuth } from '@invertase/react-native-apple-authentication';
 /**
  * 로그인 버튼
@@ -13,9 +13,9 @@ import { appleAuth } from '@invertase/react-native-apple-authentication';
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
   const onPressKakaoLogin = useCallback(async () => {
-    // const token: KakaoOAuthToken = await login();
-    // console.log('user is authenticated', token);
-    // if (typeof goNext === 'function' && token) goNext();
+    const token: KakaoOAuthToken = await login();
+    console.log('user is authenticated', token);
+    if (typeof goNext === 'function' && token) goNext();
   }, []);
 
   const onAppleButtonPress = useCallback(async () => {
