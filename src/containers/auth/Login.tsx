@@ -12,9 +12,13 @@ import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
   const onPressKakaoLogin = useCallback(async () => {
-    const token: KakaoOAuthToken = await login();
-    console.log(token);
-    if (typeof goNext === 'function' && token) goNext();
+    try {
+      const token: KakaoOAuthToken = await login();
+      console.log(token);
+      if (typeof goNext === 'function' && token) goNext();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
