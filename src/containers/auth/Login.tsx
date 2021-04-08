@@ -12,7 +12,7 @@ import { appleAuth } from '@invertase/react-native-apple-authentication';
  * @param setCurrIndex
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
-  const onPressKakaoLogin = useCallback(async () => {
+  const onPressKakaoLogin = useCallback(async (): Promise<void> => {
     const token: KakaoOAuthToken = await login();
     console.log('user is authenticated', token);
     if (typeof goNext === 'function' && token) goNext();

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@actbase/react-native-kakao-login@^2.0.18":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@actbase/react-native-kakao-login/-/react-native-kakao-login-2.0.18.tgz#104e32111de41afdb86dec46d3f355e6e99c8257"
+  integrity sha512-VW+cCKQ9OF924v/F0r2SyO6V3irmt4ynChByHPg7F1pEzZsqs3cnrL+Wh2mm76PyUXFjyAewevKVJy15/Llq2A==
+
 "@apollo/client@^3.3.11":
   version "3.3.13"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.13.tgz#0aadde13b80ce129d1261161413a9de2b0dec70e"
@@ -1225,10 +1230,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
 
-"@react-native-seoul/kakao-login@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@react-native-seoul/kakao-login/-/kakao-login-3.0.4.tgz#6e60b828e9028292c9c88591a51213610d4038fb"
-  integrity sha512-AHW0wBpZoDvFT+Ad/uT81eCgmGOSEjjt9IIZZQbsa6WhMKOWDpUvb+4rptI6ATHmMq4MCgfG0nA46oon0LeY4A==
+"@react-native-seoul/kakao-login@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@react-native-seoul/kakao-login/-/kakao-login-3.0.6.tgz#1fdfb73658701bf2ae77a26cd062dfa6f7876605"
+  integrity sha512-s+GTD1d581AF3Q6bybh11+Q87mAxpmUe5d8Z1ec+QrKDbC10AX0haq/FLLEseVToBqVgBwuK3ToQnObccu9KYQ==
   dependencies:
     dooboolab-welcome "^1.2.0"
 
