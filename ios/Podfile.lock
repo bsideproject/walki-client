@@ -1,8 +1,14 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.2)
+  - ARNKakaoLogin (2.0.18):
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
+    - React
   - boost-for-react-native (1.63.0)
-  - CocoaAsyncSocket (7.6.4)
-  - CocoaLibEvent (1.0.0)
+  - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.63.4)
   - FBReactNativeSpec (0.63.4):
@@ -16,16 +22,16 @@ PODS:
     - Flipper-Folly (~> 2.2)
     - Flipper-RSocket (~> 1.1)
   - Flipper-DoubleConversion (1.1.7)
-  - Flipper-Folly (2.3.0):
+  - Flipper-Folly (2.5.1):
     - boost-for-react-native
-    - CocoaLibEvent (~> 1.0)
     - Flipper-DoubleConversion
     - Flipper-Glog
-    - OpenSSL-Universal (= 1.0.2.20)
+    - libevent (~> 2.1.12)
+    - OpenSSL-Universal (= 1.1.180)
   - Flipper-Glog (0.3.6)
   - Flipper-PeerTalk (0.0.4)
-  - Flipper-RSocket (1.1.0):
-    - Flipper-Folly (~> 2.2)
+  - Flipper-RSocket (1.3.1):
+    - Flipper-Folly (~> 2.5)
   - FlipperKit (0.54.0):
     - FlipperKit/Core (= 0.54.0)
   - FlipperKit/Core (0.54.0):
@@ -68,22 +74,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - kakao-login (3.0.6):
-    - KakaoSDK (~> 2.4.0)
-    - KakaoSDKAuth (~> 2.4.0)
-    - KakaoSDKCommon (~> 2.4.0)
-    - KakaoSDKTalk (~> 2.4.0)
-    - KakaoSDKUser (~> 2.4.0)
-    - React
-  - KakaoSDK (2.4.1):
-    - KakaoSDKAuth (= 2.4.1)
-    - KakaoSDKCommon (= 2.4.1)
-    - KakaoSDKLink (= 2.4.1)
-    - KakaoSDKNavi (= 2.4.1)
-    - KakaoSDKStory (= 2.4.1)
-    - KakaoSDKTalk (= 2.4.1)
-    - KakaoSDKTemplate (= 2.4.1)
-    - KakaoSDKUser (= 2.4.1)
   - KakaoSDKAuth (2.4.1):
     - KakaoSDKCommon (= 2.4.1)
   - KakaoSDKCommon (2.4.1):
@@ -93,14 +83,6 @@ PODS:
   - KakaoSDKCommon/Network (2.4.1):
     - Alamofire (~> 5.1)
     - KakaoSDKCommon/Common (= 2.4.1)
-  - KakaoSDKLink (2.4.1):
-    - KakaoSDKCommon (= 2.4.1)
-    - KakaoSDKTemplate (= 2.4.1)
-  - KakaoSDKNavi (2.4.1):
-    - KakaoSDKCommon/Common (= 2.4.1)
-  - KakaoSDKStory (2.4.1):
-    - KakaoSDKAuth (= 2.4.1)
-    - KakaoSDKCommon (= 2.4.1)
   - KakaoSDKTalk (2.4.1):
     - KakaoSDKAuth (= 2.4.1)
     - KakaoSDKCommon (= 2.4.1)
@@ -110,9 +92,8 @@ PODS:
   - KakaoSDKUser (2.4.1):
     - KakaoSDKAuth (= 2.4.1)
     - KakaoSDKCommon (= 2.4.1)
-  - OpenSSL-Universal (1.0.2.20):
-    - OpenSSL-Universal/Static (= 1.0.2.20)
-  - OpenSSL-Universal/Static (1.0.2.20)
+  - libevent (2.1.12)
+  - OpenSSL-Universal (1.1.180)
   - RCTRequired (0.63.4)
   - RCTTypeSafety (0.63.4):
     - FBLazyVector (= 0.63.4)
@@ -385,6 +366,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - "ARNKakaoLogin (from `../node_modules/@actbase/react-native-kakao-login`)"
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
@@ -409,7 +391,6 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (~> 0.54.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - "kakao-login (from `../node_modules/@react-native-seoul/kakao-login`)"
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -446,7 +427,6 @@ SPEC REPOS:
     - Alamofire
     - boost-for-react-native
     - CocoaAsyncSocket
-    - CocoaLibEvent
     - Flipper
     - Flipper-DoubleConversion
     - Flipper-Folly
@@ -454,19 +434,18 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
-    - KakaoSDK
     - KakaoSDKAuth
     - KakaoSDKCommon
-    - KakaoSDKLink
-    - KakaoSDKNavi
-    - KakaoSDKStory
     - KakaoSDKTalk
     - KakaoSDKTemplate
     - KakaoSDKUser
+    - libevent
     - OpenSSL-Universal
     - YogaKit
 
 EXTERNAL SOURCES:
+  ARNKakaoLogin:
+    :path: "../node_modules/@actbase/react-native-kakao-login"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -477,8 +456,6 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  kakao-login:
-    :path: "../node_modules/@react-native-seoul/kakao-login"
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -537,33 +514,29 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  ARNKakaoLogin: 53468224735af0a6204f42f6dd738970867be9fe
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
-  CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
-  DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  DoubleConversion: cde416483dac037923206447da6e1454df403714
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
   Flipper: be611d4b742d8c87fbae2ca5f44603a02539e365
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
-  Flipper-Folly: e4493b013c02d9347d5e0cb4d128680239f6c78a
+  Flipper-Folly: f7a3caafbd74bda4827954fd7a6e000e36355489
   Flipper-Glog: 1dfd6abf1e922806c52ceb8701a3599a79a200a6
   Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
-  Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
+  Flipper-RSocket: 127954abe8b162fcaf68d2134d34dc2bd7076154
   FlipperKit: ab353d41aea8aae2ea6daaf813e67496642f3d7d
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
-  kakao-login: 3179d3d3a78f33e4feee113c1a078c2fdeaa21bf
-  KakaoSDK: 1e80d6877c0eac6a310f93c73fb15ca56c05f2bd
+  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   KakaoSDKAuth: fcba1c9ede431683f5bdd84c835a96981cb115a5
   KakaoSDKCommon: 0912aa0c7db051ae8dc07a35395cf644f7728f95
-  KakaoSDKLink: fe6f2ca19092836f8af2a9d7fabe60fd67740104
-  KakaoSDKNavi: c138bce799ebdac6811b56453de5326e49ca5925
-  KakaoSDKStory: cb33db9a04c7c44746b3662991234f52ab61961a
   KakaoSDKTalk: 749828662e4ac7a9f17bb1664b58526da289d18c
   KakaoSDKTemplate: 8bb288765bfc0195631da809b2d707f09495acdf
   KakaoSDKUser: 11955811d99d1ff1f1dfd5428afe69937e31ccef
-  OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
+  libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   RCTRequired: 082f10cd3f905d6c124597fd1c14f6f2655ff65e
   RCTTypeSafety: 8c9c544ecbf20337d069e4ae7fd9a377aadf504b
   React: b0a957a2c44da4113b0c4c9853d8387f8e64e615
@@ -594,6 +567,6 @@ SPEC CHECKSUMS:
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 5f44a135119b51a0545e5c06ead542cbeb66c61b
+PODFILE CHECKSUM: 7aed5dda8aa42d0fe0bd148183a6771d987821a2
 
 COCOAPODS: 1.10.1
