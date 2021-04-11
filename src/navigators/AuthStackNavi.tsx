@@ -16,7 +16,7 @@ import { View } from 'react-native';
 
 const Stack = createStackNavigator();
 
-export const AuthStackNavi = ({ navigation }: IAuthProps) => {
+export const AuthStackNavi = () => {
   const CommonHeader = {
     headerLeft: (props: StackHeaderLeftButtonProps) => (
       <View style={{ paddingLeft: 18 }}>
