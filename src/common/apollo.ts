@@ -4,6 +4,6 @@ export const isLoggedInVar = makeVar(false);
 
 // Initialize Apollo Client
 export const client = new ApolloClient({
-  uri: 'localhost:4000/graphql',
+  uri: 'http://api-walki-dev.ap-northeast-2.elasticbeanstalk.com/graphql',
   cache: new InMemoryCache(),
 });

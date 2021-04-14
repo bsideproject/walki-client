@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import styled from '@emotion/native';
 import { Alert, Text } from 'react-native';
 import LoginButton from '../../components/LoginButton';
@@ -6,12 +7,39 @@ import TextLink from '../../components/TextLink';
 import { INaviProps } from '../../navigators/AuthStackNavi';
 import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 import { appleAuth } from '@invertase/react-native-apple-authentication';
+interface SignInResult {
+  accessToken: String;
+}
+
+interface SignInVars {
+  social: Social;
+  token: String;
+}
+enum Social {
+  APPLE,
+  KAKAO,
+}
+const GET_ACCESS_TOKEN = gql`query getToken (social: Social!,token: String!) {
+    signIn (social: $social, token: "0") {
+      accessToken
+      __typename
+    }
+  }
+`;
+
 /**
  * 로그인 버튼
  * @param currIndex
  * @param setCurrIndex
  */
 const LoginContainer = ({ goNext }: INaviProps) => {
+  const { loading, data } = useQuery<SignInResult, SignInVars>(
+    GET_ACCESS_TOKEN,
+    { variables: { social: Social.KAKAO, token: '0' } },
+  );
+  useEffect(() => {
+    console.log('GET_ACCESS_TOKEN', data);
+  }, [data]);
   const onPressKakaoLogin = useCallback(async (): Promise<void> => {
     const token: KakaoOAuthToken = await login();
     console.log('user is authenticated', token);
