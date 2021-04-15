@@ -19,8 +19,9 @@ enum Social {
   APPLE,
   KAKAO,
 }
-const GET_ACCESS_TOKEN = gql`query getToken (social: Social!,token: String!) {
-    signIn (social: $social, token: "0") {
+const GET_ACCESS_TOKEN = gql`
+  query getToken($social: Social!, $token: String!) {
+    signIn(social: $social, token: $token) {
       accessToken
       __typename
     }
